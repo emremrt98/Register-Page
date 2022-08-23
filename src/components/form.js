@@ -15,10 +15,19 @@ export default function Form({ setCheck }) {
         passControl: "",
     })
 
+    useEffect(() => {
+        (formData.name.length >= 3 && formData.name.length <= 16) ? setCheck(prevList => ({ ...prevList, inf1: true })) : setCheck(prevList => ({ ...prevList, inf1: false }));
+        (formData.password.length >= 8 && formData.password.length <= 16) ? setCheck(prevList => ({ ...prevList, inf2: true })) : setCheck(prevList => ({ ...prevList, inf2: false }));
+        (formData.passControl.length >= 8 && formData.passControl.length <= 16) ? setCheck(prevList => ({ ...prevList, inf2: true })) : setCheck(prevList => ({ ...prevList, inf2: false }));
+        const coPass = formData.passControl;
+        const pass = formData.password;
+        (coPass === pass) ? setCheck(prevList => ({ ...prevList, inf3: true })) : setCheck(prevList => ({ ...prevList, inf3: false }));
+    }, [formData.name, formData.password, formData.passControl])
+
     const changeData = (e) => {
         setFormData(prevList => ({ ...prevList, [e.target.name]: e.target.value }));
     }
-    useEffect(() => console.log(formData), [formData])
+
 
     const control = () => { toast('Kayıt Başarılı', { style: { background: "green", color: "white" } }); }
 

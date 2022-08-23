@@ -9,8 +9,7 @@ function App() {
   const [check, setCheck] = useState({
     inf1: false,
     inf2: false,
-    inf3: false,
-    inf4: false
+    inf3: false
   });
   return (
     <div className="App">
