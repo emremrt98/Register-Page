@@ -1,3 +1,20 @@
+.App {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.compare{
+    background-color: $second-color;
+    border: none;
+    border-radius: 50%;
+    color: $text-color;
+    padding: 50px;
+    position: absolute;
+    right: -250px;
+
+}
+
 .container {
     border: 1px solid;
     padding: 100px;
@@ -45,11 +62,11 @@
         }
 
         .eye1 {
-            top: 232px;
+            top: 223px;
         }
 
         .eye2 {
-            top: 302px;
+            top: 290px;
         }
 
         button {

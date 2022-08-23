@@ -1,10 +1,11 @@
 import { BiUserCircle } from "react-icons/bi";
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import toast, { Toaster } from 'react-hot-toast';
 export default function Form() {
+
     const [eyeState, setEyeState] = useState(true);
     const [eyeState2, setEyeState2] = useState(true);
     const [value, setValue] = useState()
