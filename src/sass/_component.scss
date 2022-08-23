@@ -12,7 +12,12 @@
     padding: 50px;
     position: absolute;
     right: -225px;
-
+    
+    .check{
+        text-decoration: line-through;
+        opacity: 0.5;
+        transition: all 1s;
+    }
     p{
         color: gray;
     }
@@ -21,6 +26,7 @@
 
 .container {
     border: 1px solid;
+    border-radius: 50px;
     padding: 100px;
     background: $second-color;
     text-align: center;
