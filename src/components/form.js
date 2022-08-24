@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import toast, { Toaster } from 'react-hot-toast';
-export default function Form({ setCheck }) {
 
+export default function Form({ setCheck }) {
     const [eyeState, setEyeState] = useState(true);
     const [eyeState2, setEyeState2] = useState(true);
     const [value, setValue] = useState()
+    const [button, setButton] = useState(true)
     const [formData, setFormData] = useState({
         name: "",
         password: "",
@@ -22,6 +23,7 @@ export default function Form({ setCheck }) {
         const coPass = formData.passControl;
         const pass = formData.password;
         (coPass === pass) ? setCheck(prevList => ({ ...prevList, inf3: true })) : setCheck(prevList => ({ ...prevList, inf3: false }));
+        ((coPass === pass) && (formData.name.length >= 3 && formData.name.length <= 16)) ? setButton(false) : setButton(true);
     }, [formData.name, formData.password, formData.passControl])
 
     const changeData = (e) => {
@@ -52,7 +54,7 @@ export default function Form({ setCheck }) {
                     :
                     <AiFillEye onClick={() => setEyeState2(!eyeState2)} className="eye-icon eye2" />
                 }
-                <button type="submit">Sign In</button>
+                <button disabled={button} type="submit">Sign In</button>
                 <Toaster duration={5000} />
             </form>
         </div>
